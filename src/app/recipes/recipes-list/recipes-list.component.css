@@ -1,0 +1,14 @@
+.recipe-card {
+  border: 1px solid rgba(128, 128, 128, 0.582);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: rgba(211, 211, 211, 0.164);
+}
+
+.img-responsive {
+  border-radius: 50%;
+}
