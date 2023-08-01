@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-10">
-    <app-shopping-edit></app-shopping-edit>
+    <app-shopping-edit (addIngredientEvent)="handleAddIngredient($event)"></app-shopping-edit>
     <hr>
     <ul class="list-group">
       <li *ngFor="let ingredient of ingredients" class="list-group-item" style="cursor: pointer">
@@ -11,5 +11,9 @@
     </ul>
   </div>
 </div>
-<!-- the prop is passed between [] and accessed in the child component with @Input() -->
-<app-shopping-edit *ngFor="let ingredient of ingredients" [ingredient]="ingredient"></app-shopping-edit>
+<!-- the prop is passed between [] and accessed in the child component with @Input('alias') -->
+<app-shopping-edit
+  *ngFor="let ingredient of ingredients"
+  [ingredient]="ingredient"
+>
+</app-shopping-edit>

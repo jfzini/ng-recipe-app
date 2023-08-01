@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-shopping-edit',
@@ -6,5 +6,23 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./shopping-edit.component.css']
 })
 export class ShoppingEditComponent {
-  @Input() ingredient: { name: string, amount: number }; //the prop is passed between [] and accessed in the child component with @Input()
+  //the prop is passed between [] and accessed in the child component with @Input('alias')
+  @Input() ingredient: { name: string, amount: number }; 
+  @Output() addIngredientEvent = new EventEmitter<{ name: string, amount: number }>();
+
+  newIngredientName: string = '';
+  newIngredientAmount: number = 0;
+
+
+  addIngredient() {
+    this.addIngredientEvent.emit({ name: this.newIngredientName, amount: this.newIngredientAmount });
+    this.newIngredientName = '';
+    this.newIngredientAmount = 0;
+  }
+  
+
+  constructor() { }
+
+  ngOnInit() {
+  }
 }
