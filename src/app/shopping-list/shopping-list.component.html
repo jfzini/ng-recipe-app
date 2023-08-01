@@ -11,3 +11,5 @@
     </ul>
   </div>
 </div>
+<!-- the prop is passed between [] and accessed in the child component with @Input() -->
+<app-shopping-edit *ngFor="let ingredient of ingredients" [ingredient]="ingredient"></app-shopping-edit>
