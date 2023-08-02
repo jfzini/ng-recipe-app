@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-shopping-edit',
   templateUrl: './shopping-edit.component.html',
-  styleUrls: ['./shopping-edit.component.css']
+  styleUrls: ['./shopping-edit.component.css'],
+  encapsulation: ViewEncapsulation.None, // changing the default behavior of emulated shadow DOM to none
 })
 export class ShoppingEditComponent {
   //the prop is passed between [] and accessed in the child component with @Input('alias')
