@@ -11,13 +11,13 @@ export class ShoppingEditComponent {
   @Input() ingredient: { name: string, amount: number }; 
   @Output() addIngredientEvent = new EventEmitter<{ name: string, amount: number }>();
 
-  newIngredientName: string = '';
+  // newIngredientName: string = ''; this is need in case of two-way binding, but I am using local ref instead
   newIngredientAmount: number = 0;
 
 
-  addIngredient() {
-    this.addIngredientEvent.emit({ name: this.newIngredientName, amount: this.newIngredientAmount });
-    this.newIngredientName = '';
+  addIngredient(target: HTMLInputElement) {
+    this.addIngredientEvent.emit({ name: target.value, amount: this.newIngredientAmount });
+    // this.newIngredientName = '';
     this.newIngredientAmount = 0;
   }
   
