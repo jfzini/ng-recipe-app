@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  @Output() switchNavigation = new EventEmitter<string>();
+
+  onNavigate(feature: string) {
+    this.switchNavigation.emit(feature);
+  }
 
   collapsed = true;
 
